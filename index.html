@@ -1,5 +1,7 @@
-<!DOCTYPE html>
+.<!DOCTYPE html>
 <html>
+   <link rel="icon" href="logo.png">
+<link rel="manifest" href="manifest.json"> 
 <head>
 <link rel="icon" href="https://fasting1234.github.io/logo.png">
 <meta property="og:title" content="HERCOR COLLEGE - RIO P. MARTINEZ">
@@ -32,6 +34,7 @@ th{background:#0f172a;color:#fff;padding:8px;text-align:left} td{padding:7px;bor
 .badge{background:#fef08a;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:900}
 </style>
 </head>
+
 <body>
 <div class="logo-top">
 <img src="https://fasting1234.github.io/logo.png" onerror="this.src='https://via.placeholder.com/60?text=LOGO'">
@@ -182,5 +185,8 @@ function copyDB(){ navigator.clipboard.writeText(document.getElementById('dbView
 function clearAll(){ if(confirm('Sure ka burahin lahat Boss?')){ localStorage.removeItem('HERCOR_SINGLE_DB'); location.reload(); } }
 render();
 </script>
+<script>
+if('serviceWorker' in navigator){console.log('PWA ready')}
+</script>  
 </body>
 </html>
