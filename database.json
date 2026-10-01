@@ -1,11 +1,10 @@
 {
   "employees": [
-    {"id": 1, "name": "JUAN DELA CRUZ", "position": "Teacher", "branch": "Main QC Campus", "salary": 25000},
-    {"id": 2, "name": "MARIA SANTOS", "position": "Admin", "branch": "Bolinao Branch", "salary": 20000}
+    {"id": 1, "name": "RIO P. MARTINEZ", "position": "CEO", "branch": "Main QC Campus", "salary": 50000},
+    {"id": 2, "name": "JUAN DELA CRUZ", "position": "Teacher", "branch": "Main QC Campus", "salary": 25000}
   ],
   "graduates": [
-    {"id": 1, "name": "RIO P. MARTINEZ", "course": "BS Information Technology", "honor": "Cum Laude", "batch": "Batch 2026"},
-    {"id": 2, "name": "JUAN DELA CRUZ", "course": "BS Education", "honor": "Magna Cum Laude", "batch": "Batch 2026"}
-  ],
-  "payroll": []
+    {"id": 1, "name": "RIO P. MARTINEZ", "course": "BS IT", "honor": "Cum Laude", "batch": "Batch 2026"},
+    {"id": 2, "name": "MARIA SANTOS", "course": "BS Education", "honor": "Magna Cum Laude", "batch": "Batch 2026"}
+  ]
 }
