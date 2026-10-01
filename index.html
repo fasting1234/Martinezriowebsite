@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>HERCOR DB VIEW</title>
-<style>body{font-family:Arial;background:#e0f2fe;padding:10px}.box{background:#fff;padding:15px;border-radius:15px;margin:10px 0}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ccc;padding:8px;text-align:left;font-size:13px}th{background:#000;color:#fff}</style>
-</head><body>
-<div class="box" style="background:#000;color:#fff;text-align:center"><h1>HERCOR DATABASE - LIVE FROM GITHUB</h1><p id="load">Loading database.json...</p></div>
-<div class="box"><h2>👷 EMPLOYERS TABLE - Galing sa database.json</h2><table id="eTable"><tr><th>Name</th><th>Position</th><th>Branch</th><th>Salary</th></tr></table></div>
-<div class="box"><h2>🎓 GRADUATES TABLE - Galing sa database.json</h2><table id="gTable"><tr><th>Name</th><th>Course</th><th>Honor</th></tr></table></div>
-<div class="box"><h3>Paano mag add Boss?</h3><p>1. Punta ka sa: github.com/fasting1234/Martinezriowebsite/blob/main/database.json<br>2. Click Edit<br>3. Dagdag ka ng employee o graduate sa loob<br>4. Commit - Auto update dito!</p><button onclick="location.reload()" style="padding:10px;background:#000;color:#fff;border-radius:10px;width:100%">🔄 REFRESH PARA MAKITA BAGO</button></div>
-<script>
-fetch('./database.json?v='+Date.now()).then(r=>r.json()).then(db=>{
- document.getElementById('load').innerHTML='✅ DATABASE LOADED! '+db.employees.length+' employees, '+db.graduates.length+' graduates';
- let eh=''; db.employees.forEach(e=>{ eh+=`<tr><td>${e.name}</td><td>${e.position}</td><td>${e.branch}</td><td>₱${e.salary}</td></tr>`; });
- document.getElementById('eTable').innerHTML+='<tr><th>Name</th><th>Position</th><th>Branch</th><th>Salary</th></tr>'+eh;
- let gh=''; db.graduates.forEach(g=>{ gh+=`<tr><td>${g.name}</td><td>${g.course}</td><td>${g.honor}</td></tr>`; });
- document.getElementById('gTable').innerHTML+='<tr><th>Name</th><th>Course</th><th>Honor</th></tr>'+gh;
-}).catch(e=>{ document.getElementById('load').innerHTML='❌ WALANG database.json! Create mo muna Boss! Error: '+e; });
-</script>
-</body></html>
+{
+  "employees": [
+    {"id": 1, "name": "RIO P. MARTINEZ", "position": "CEO", "branch": "Main QC Campus", "salary": 50000},
+    {"id": 2, "name": "JUAN DELA CRUZ", "position": "Teacher", "branch": "Main QC Campus", "salary": 25000}
+  ],
+  "graduates": [
+    {"id": 1, "name": "RIO P. MARTINEZ", "course": "BS IT", "honor": "Cum Laude", "batch": "Batch 2026"},
+    {"id": 2, "name": "MARIA SANTOS", "course": "BS Education", "honor": "Magna Cum Laude", "batch": "Batch 2026"}
+  ]
+}
