@@ -1,8 +1,11 @@
 {
   "employees": [
-    {"name": "JUAN", "salary": 25000}
+    {"id": 1, "name": "JUAN DELA CRUZ", "position": "Teacher", "branch": "Main QC Campus", "salary": 25000},
+    {"id": 2, "name": "MARIA SANTOS", "position": "Admin", "branch": "Bolinao Branch", "salary": 20000}
   ],
   "graduates": [
-    {"name": "RIO MARTINEZ", "honor": "Cum Laude"}
-  ]
+    {"id": 1, "name": "RIO P. MARTINEZ", "course": "BS Information Technology", "honor": "Cum Laude", "batch": "Batch 2026"},
+    {"id": 2, "name": "JUAN DELA CRUZ", "course": "BS Education", "honor": "Magna Cum Laude", "batch": "Batch 2026"}
+  ],
+  "payroll": []
 }
