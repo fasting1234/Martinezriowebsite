@@ -1,1 +1,120 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HERCOR - RIO 3D</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#e0f2fe;padding:12px}.h{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:18px;border-radius:18px;text-align:center}.box{background:#fff;padding:16px;border-radius:16px;margin:12px 0;box-shadow:0 8px 20px rgba(0,0,0,.1)}.btn{padding:10px 16px;border:none;border-radius:10px;font-weight:bold;width:100%;margin:5px 0;cursor:pointer}.d{background:#0f172a;color:#fff}.y{background:#facc15;color:#0f172a}.badge{background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}</style></head><body><div class="h"><h1>🎓 HERCOR COLLEGE<br><small style="color:#facc15">RIO P. MARTINEZ - 3D SYSTEM</small></h1><p style="margin-top:6px;font-size:12px">GitHub: fasting1234.github.io - LIVE!</p></div><div class="box"><h2>✅ SUCCESS BOSS RIO!</h2><p><b>College:</b> HERCOR COLLEGE<br><b>Dev:</b> RIO MARTINEZ</p><div style="text-align:center;margin:10px 0;padding:12px;background:#f0fdf4;border-radius:12px;border:2px solid #22c55e"><h3 style="color:#1e3a8a">RIO P. MARTINEZ</h3><p>BS Information Technology<br><b>Cum Laude - Batch 2026</b><br><span class="badge">Main QC + Bolinao Branch</span></p><p style="margin-top:8px;font-size:12px;background:#fefce8;padding:6px;border-radius:8px">✅ Database: Loaded from GitHub<br>Graduate ID: HERCOR-2026-001</p></div></div><div class="box"><h2>💰 Payroll (SSS/PhilHealth/PagIBIG)</h2><p style="font-size:12px;color:gray">Checkbox - yung may check lang i-print</p><label><input type="checkbox" checked> SSS: ₱500</label><br><label><input type="checkbox" checked> PhilHealth: ₱300</label><br><label><input type="checkbox" checked> PagIBIG: ₱200</label><br><label><input type="checkbox"> Bolinao Allowance</label><br><button class="btn d" onclick="alert('🖨️ Printing checked items only - SSS PhilHealth PagIBIG')">🖨️ Print Payslip (Checked Only)</button></div><div class="box"><h2>🎓 Certificates + Employees</h2><button class="btn y" onclick="alert('🎓 Certificate for RIO P. MARTINEZ - Cum Laude Ready!')">🎓 Generate Certificate</button><button class="btn d" onclick="alert('👷 Employees: Main QC + Bolinao Branch')">👷 View Employees</button><p style="font-size:10px;color:#94a3b8;margin-top:10px;text-align:center">© 2026 HERCOR COLLEGE - RIO P. MARTINEZ - GitHub Pages Live<br>fasting1234.github.io/Martinezriowebsite</p></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HERCOR - GITHUB DATABASE CRUD</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+*{font-family:'Outfit',Arial}
+.glass{background:rgba(255,255,255,.9);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.5)}
+.btn3d{box-shadow:0 8px 0 #0f172a,0 12px 20px rgba(0,0,0,.2);transform:translateY(0);transition:.15s}
+.btn3d:active{transform:translateY(6px);box-shadow:0 2px 0 #0f172a}
+</style>
+</head>
+<body class="bg-gradient-to-br from-slate-100 via-blue-100 to-cyan-100 min-h-screen p-3">
+<!-- HEADER -->
+<div class="max-w-6xl mx-auto">
+<div class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 rounded-[24px] p-5 text-white shadow-2xl">
+<div class="flex justify-between items-center flex-wrap gap-3">
+<div><h1 class="text-2xl font-black">🎓 HERCOR COLLEGE</h1><p class="text-yellow-300 font-bold">RIO P. MARTINEZ - GITHUB DB CRUD</p><p class="text-xs opacity-70 mt-1">Database: fasting1234/Martinezriowebsite/database.json - LIVE EDIT</p></div>
+<div class="flex gap-2"><button onclick="exportDB()" class="bg-yellow-400 text-slate-900 px-4 py-2 rounded-xl font-black text-sm btn3d">💾 EXPORT JSON</button><button onclick="document.getElementById('importFile').click()" class="bg-white text-slate-900 px-4 py-2 rounded-xl font-black text-sm btn3d">📥 IMPORT</button><input type="file" id="importFile" hidden accept=".json" onchange="importDB(event)"></div>
+</div>
+</div>
+
+<!-- STATS -->
+<div class="grid grid-cols-3 gap-3 mt-4">
+<div class="glass rounded-2xl p-4 text-center shadow-lg"><p class="text-2xl font-black" id="countEmp">0</p><p class="text-xs font-bold text-slate-500">EMPLOYERS</p></div>
+<div class="glass rounded-2xl p-4 text-center shadow-lg"><p class="text-2xl font-black" id="countGrad">1</p><p class="text-xs font-bold text-slate-500">GRADUATES</p></div>
+<div class="glass rounded-2xl p-4 text-center shadow-lg"><p class="text-2xl font-black" id="countPay">0</p><p class="text-xs font-bold text-slate-500">PAYROLL</p></div>
+</div>
+
+<!-- TABS -->
+<div class="flex gap-2 mt-4 overflow-x-auto">
+<button onclick="showTab('emp')" id="tabEmp" class="tab bg-slate-900 text-white px-5 py-3 rounded-xl font-black text-sm whitespace-nowrap">👷 EMPLOYERS</button>
+<button onclick="showTab('grad')" id="tabGrad" class="tab bg-white px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap">🎓 GRADUATES</button>
+<button onclick="showTab('pay')" id="tabPay" class="tab bg-white px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap">💰 PAYROLL</button>
+</div>
+
+<!-- EMPLOYERS TAB -->
+<div id="panelEmp" class="tabPanel">
+<div class="glass rounded-2xl p-4 mt-3 shadow-xl">
+<h3 class="font-black text-lg">➕ Add Employer</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
+<input id="empName" placeholder="Full Name (ex: Juan Dela Cruz)" class="p-3 rounded-xl border">
+<input id="empPos" placeholder="Position (ex: Teacher)" class="p-3 rounded-xl border">
+<select id="empBranch" class="p-3 rounded-xl border"><option>Main QC Campus</option><option>Bolinao Branch</option></select>
+<input id="empSalary" type="number" placeholder="Salary (ex: 25000)" class="p-3 rounded-xl border">
+<select id="empStatus" class="p-3 rounded-xl border"><option>Active</option><option>Resigned</option></select>
+<button onclick="addEmp()" class="bg-slate-900 text-white p-3 rounded-xl font-black btn3d md:col-span-3">➕ ADD EMPLOYER TO GITHUB DB</button>
+</div>
+</div>
+<div class="glass rounded-2xl p-4 mt-3 shadow-xl overflow-x-auto">
+<table class="w-full text-sm"><thead><tr class="text-left text-slate-500 border-b"><th class="p-2">ID</th><th class="p-2">Name</th><th class="p-2">Branch</th><th class="p-2">Salary</th><th class="p-2">Action</th></tr></thead><tbody id="empTable"></tbody></table>
+</div>
+</div>
+
+<!-- GRADUATES TAB -->
+<div id="panelGrad" class="tabPanel hidden">
+<div class="glass rounded-2xl p-4 mt-3 shadow-xl">
+<h3 class="font-black text-lg">🎓 Add Graduate Student</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
+<input id="gradName" placeholder="Student Name" class="p-3 rounded-xl border">
+<input id="gradCourse" placeholder="Course (BS IT)" class="p-3 rounded-xl border">
+<select id="gradHonor" class="p-3 rounded-xl border"><option>Cum Laude</option><option>Magna Cum Laude</option><option>Summa Cum Laude</option><option>With Honors</option><option>None</option></select>
+<input id="gradBatch" placeholder="Batch (Batch 2026)" class="p-3 rounded-xl border">
+<select id="gradBranch" class="p-3 rounded-xl border"><option>Main QC Campus</option><option>Bolinao Branch</option></select>
+<button onclick="addGrad()" class="bg-blue-900 text-white p-3 rounded-xl font-black btn3d md:col-span-3">🎓 ADD GRADUATE</button>
+</div>
+</div>
+<div class="glass rounded-2xl p-4 mt-3 shadow-xl overflow-x-auto">
+<table class="w-full text-sm"><thead><tr class="text-left text-slate-500 border-b"><th class="p-2">ID</th><th class="p-2">Name</th><th class="p-2">Course</th><th class="p-2">Honor</th><th class="p-2">Action</th></tr></thead><tbody id="gradTable"></tbody></table>
+</div>
+</div>
+
+<!-- PAYROLL TAB -->
+<div id="panelPay" class="tabPanel hidden">
+<div class="glass rounded-2xl p-4 mt-3 shadow-xl">
+<h3 class="font-black text-lg">💰 Payroll Computation (SSS PhilHealth PagIBIG Isa-isa)</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-3">
+<select id="payEmp" class="p-3 rounded-xl border"><option>Select Employer</option></select>
+<input id="paySalary" type="number" placeholder="Basic Salary" class="p-3 rounded-xl border" oninput="computePay()">
+<div class="md:col-span-2 grid grid-cols-2 gap-2">
+<label class="bg-white p-3 rounded-xl flex items-center gap-2"><input type="checkbox" id="cSSS" checked onchange="computePay()"> SSS: <span id="vSSS">₱0</span></label>
+<label class="bg-white p-3 rounded-xl flex items-center gap-2"><input type="checkbox" id="cPH" checked onchange="computePay()"> PhilHealth: <span id="vPH">₱0</span></label>
+<label class="bg-white p-3 rounded-xl flex items-center gap-2"><input type="checkbox" id="cPag" checked onchange="computePay()"> PagIBIG: <span id="vPag">₱0</span></label>
+<label class="bg-white p-3 rounded-xl flex items-center gap-2"><input type="checkbox" id="cBol" onchange="computePay()"> Bolinao: <span>₱1500</span></label>
+</div>
+<div class="md:col-span-2 bg-slate-900 text-white p-4 rounded-xl"><p>Gross: <span id="gross">₱0</span> | Deductions: <span id="deduct">₱0</span></p><p class="text-xl font-black text-yellow-300">NET PAY: <span id="net">₱0</span></p></div>
+<button onclick="savePay()" class="bg-slate-900 text-white p-3 rounded-xl font-black btn3d md:col-span-2 w-full">💾 SAVE PAYROLL TO DB</button>
+</div>
+</div>
+</div>
+
+<!-- EXPORT MODAL -->
+<div id="exportBox" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50">
+<div class="bg-white rounded-2xl p-5 max-w-2xl w-full"><h3 class="font-black">💾 GitHub Database JSON - Copy & Paste to database.json</h3><textarea id="jsonOut" class="w-full h-64 p-3 border rounded-xl mt-3 text-xs font-mono"></textarea><div class="flex gap-2 mt-3"><button onclick="copyJSON()" class="bg-yellow-400 px-4 py-2 rounded-xl font-black flex-1">📋 COPY</button><button onclick="document.getElementById('exportBox').classList.add('hidden')" class="bg-slate-200 px-4 py-2 rounded-xl font-bold flex-1">CLOSE</button></div><p class="text-xs text-slate-500 mt-2">After copy, punta ka sa GitHub > database.json > Edit > Paste > Commit!</p></div>
+</div>
+
+<div class="text-center text-[10px] text-slate-400 mt-6">© 2026 HERCOR COLLEGE - RIO MARTINEZ - GitHub Database CRUD Live</div>
+</div>
+
+<script>
+let db = JSON.parse(localStorage.getItem('hercor_github_db') || '{"employees":[],"graduates":[{"id":"HERCOR-2026-001","name":"RIO P. MARTINEZ","course":"BS Information Technology","honor":"Cum Laude","batch":"Batch 2026","branch":"Main QC Campus"}],"payroll":[]}');
+function save(){localStorage.setItem('hercor_github_db',JSON.stringify(db)); render(); updatePaySelect();}
+function showTab(t){document.querySelectorAll('.tabPanel').forEach(e=>e.classList.add('hidden'));document.querySelectorAll('.tab').forEach(e=>e.classList.replace('bg-slate-900','bg-white')&&e.classList.replace('text-white','text-slate-900'));document.getElementById('panel'+t.charAt(0).toUpperCase()+t.slice(1)).classList.remove('hidden');document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)).classList.replace('bg-white','bg-slate-900');document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('text-white');}
+function addEmp(){const n=document.getElementById('empName').value, p=document.getElementById('empPos').value, b=document.getElementById('empBranch').value, s=document.getElementById('empSalary').value||0, st=document.getElementById('empStatus').value; if(!n) return alert('Lagay mo name Boss!'); db.employees.push({id:'EMP-'+Date.now(),name:n,position:p,branch:b,salary:parseFloat(s),status:st}); save(); document.getElementById('empName').value=''; alert('✅ Employer Added! Click EXPORT JSON para ma-save sa GitHub!');}
+function addGrad(){const n=document.getElementById('gradName').value, c=document.getElementById('gradCourse').value, h=document.getElementById('gradHonor').value, ba=document.getElementById('gradBatch').value, br=document.getElementById('gradBranch').value; if(!n) return alert('Lagay mo name Boss!'); db.graduates.push({id:'HERCOR-'+Date.now(),name:n,course:c,honor:h,batch:ba,branch:br,date:new Date().toISOString().split('T')[0]}); save(); document.getElementById('gradName').value=''; alert('🎓 Graduate Added!');}
+function computePay(){const sal=parseFloat(document.getElementById('paySalary').value)||0; const sss=sal*0.045, ph=sal*0.02, pag=100, bol=1500; document.getElementById('vSSS').innerText='₱'+sss.toFixed(2); document.getElementById('vPH').innerText='₱'+ph.toFixed(2); document.getElementById('vPag').innerText='₱'+pag; let ded=0; if(document.getElementById('cSSS').checked) ded+=sss; if(document.getElementById('cPH').checked) ded+=ph; if(document.getElementById('cPag').checked) ded+=pag; if(document.getElementById('cBol').checked) ded-=bol; document.getElementById('gross').innerText='₱'+sal.toFixed(2); document.getElementById('deduct').innerText='₱'+ded.toFixed(2); document.getElementById('net').innerText='₱'+(sal-ded).toFixed(2);}
+function savePay(){const e=document.getElementById('payEmp').value, net=document.getElementById('net').innerText; if(e==='Select Employer') return alert('Pili ka employer!'); db.payroll.push({id:'PAY-'+Date.now(),employee:e,net:net,date:new Date().toISOString()}); save(); alert('💰 Payroll Saved!');}
+function render(){document.getElementById('empTable').innerHTML=db.employees.map((e,i)=>`<tr class="border-b"><td class="p-2">${e.id.slice(-4)}</td><td class="p-2 font-bold">${e.name}<br><small>${e.position}</small></td><td class="p-2">${e.branch}</td><td class="p-2">₱${e.salary}</td><td class="p-2"><button onclick="db.employees.splice(${i},1);save()" class="bg-red-500 text-white px-2 py-1 rounded text-xs">Delete</button></td></tr>`).join('')||'<tr><td colspan=5 class="p-4 text-center text-slate-400">Wala pang employer - Add ka Boss!</td></tr>'; document.getElementById('gradTable').innerHTML=db.graduates.map((g,i)=>`<tr class="border-b"><td class="p-2">${g.id.slice(-4)}</td><td class="p-2 font-bold">${g.name}</td><td class="p-2">${g.course}</td><td class="p-2"><span class="bg-yellow-200 px-2 py-1 rounded text-xs font-bold">${g.honor}</span></td><td class="p-2"><button onclick="db.graduates.splice(${i},1);save()" class="bg-red-500 text-white px-2 py-1 rounded text-xs">Delete</button></td></tr>`).join(''); document.getElementById('countEmp').innerText=db.employees.length; document.getElementById('countGrad').innerText=db.graduates.length; document.getElementById('countPay').innerText=db.payroll.length;}
+function updatePaySelect(){document.getElementById('payEmp').innerHTML='<option>Select Employer</option>'+db.employees.map(e=>`<option>${e.name}</option>`).join('');}
+function exportDB(){document.getElementById('jsonOut').value=JSON.stringify(db,null,2); document.getElementById('exportBox').classList.remove('hidden'); document.getElementById('exportBox').classList.add('flex');}
+function copyJSON(){navigator.clipboard.writeText(document.getElementById('jsonOut').value); alert('✅ Copied! Punta ka sa GitHub > database.json > Edit > Paste > Commit!');}
+function importDB(ev){const f=ev.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=e=>{try{db=JSON.parse(e.target.result); save(); alert('✅ Database Imported!');}catch{alert('❌ Invalid JSON!');}}; r.readAsText(f);}
+fetch('./database.json?t='+Date.now()).then(r=>r.json()).then(j=>{if(j.employees||j.graduates){ if(j.employees?.length>db.employees.length || j.graduates?.length>db.graduates.length) { db=j; save(); }}}).catch(()=>{});
+render(); updatePaySelect();
+</script>
+</body>
+</html>
