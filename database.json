@@ -1,0 +1,8 @@
+{
+  "employees": [
+    {"name": "JUAN", "salary": 25000}
+  ],
+  "graduates": [
+    {"name": "RIO MARTINEZ", "honor": "Cum Laude"}
+  ]
+}
