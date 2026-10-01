@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HERCOR - RIO MARTINEZ</title>
+<style>
+body{font-family:Arial;background:#e0f2fe;padding:15px;text-align:center}
+h1{background:#0f172a;color:white;padding:20px;border-radius:20px}
+.box{background:white;padding:20px;border-radius:15px;margin-top:10px}
+</style>
+</head>
+<body>
+<h1>🎓 HERCOR COLLEGE<br>RIO MARTINEZ</h1>
+<div class="box">
+<h2>✅ SUCCESS BOSS!</h2>
+<p>GITHUB DATABASE mo gumagana!</p>
+<p id="d">Loading...</p>
+</div>
+<script>
+fetch('https://raw.githubusercontent.com/fasting1234/Martinezriowebsite/main/database.json')
+.then(r=>r.json()).then(j=>{
+document.getElementById('d').innerHTML="Graduate: "+j.graduates[0].name+"<br>"+j.graduates[0].course+" - "+j.graduates[0].honor;
+});
+</script>
+</body>
+</html>
