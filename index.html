@@ -1,192 +1,136 @@
-.<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-   <link rel="icon" href="logo.png">
-<link rel="manifest" href="manifest.json"> 
 <head>
-<link rel="icon" href="https://fasting1234.github.io/logo.png">
-<meta property="og:title" content="HERCOR COLLEGE - RIO P. MARTINEZ">
-<meta property="og:description" content="HERCOR Payroll System - Cum Laude Batch 2026">
-<meta property="og:image" content="https://fasting1234.github.io/logo.png">
-<meta property="og:url" content="https://fasting1234.github.io/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://fasting1234.github.io/logo.png">
-<style>
-.logo-top{display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-radius:12px;margin-bottom:10px;color:#000}
-.logo-top img{width:60px;height:60px;border-radius:50%;border:3px solid #facc15}
-</style>
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HERCOR PAYROLL SYSTEM - RIO MARTINEZ</title>
+<title>HERCOR COLLEGE - RIO MARTINEZ</title>
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="manifest" href="manifest.json">
+<meta property="og:image" content="https://fasting1234.github.io/logo.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
 body{background:#0f172a;color:#fff;padding:10px}
-h1{background:linear-gradient(90deg,#facc15,#fb923c);color:#000;padding:15px;border-radius:15px;text-align:center;font-size:20px}
-.box{background:#fff;color:#000;border-radius:15px;padding:14px;margin:12px 0}
-input,select{width:100%;padding:11px;margin:4px 0;border:2px solid #ddd;border-radius:10px}
-button{width:100%;padding:12px;border:none;border-radius:10px;font-weight:900;margin:4px 0;cursor:pointer}
-.black{background:#0f172a;color:#fff}.yellow{background:#facc15;color:#000}
-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
-th{background:#0f172a;color:#fff;padding:8px;text-align:left} td{padding:7px;border-bottom:1px solid #eee}
-.tabs{display:flex;gap:6px;margin:10px 0}.tab{flex:1;padding:10px;border-radius:10px;background:#334155;color:#fff;text-align:center;font-weight:900;cursor:pointer;font-size:13px}
-.tab.active{background:#facc15;color:#000}
-.sec{display:none}.sec.active{display:block}
-.badge{background:#fef08a;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:900}
+.top{background:#fff;color:#000;padding:12px;border-radius:15px;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.top img{width:60px;height:60px;border-radius:50%;border:3px solid #facc15;object-fit:cover}
+.box{background:#fff;color:#000;border-radius:15px;padding:14px;margin:10px 0}
+input,select{width:100%;padding:12px;margin:5px 0;border:2px solid #ddd;border-radius:10px}
+button{width:100%;padding:12px;border:none;border-radius:10px;font-weight:900;margin:5px 0}
+.black{background:#0f172a;color:#fff}
+.yellow{background:#facc15;color:#000}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{background:#0f172a;color:#fff;padding:8px;text-align:left}
+td{padding:8px;border-bottom:1px solid #eee;color:#000}
+.tabs{display:flex;gap:6px;margin:10px 0}
+.tab{flex:1;padding:10px;border-radius:10px;background:#334155;color:#fff;text-align:center;font-weight:900;font-size:12px}
+.tab.on{background:#facc15;color:#000}
+.sec{display:none}.sec.on{display:block}
 </style>
 </head>
-
 <body>
-<div class="logo-top">
-<img src="https://fasting1234.github.io/logo.png" onerror="this.src='https://via.placeholder.com/60?text=LOGO'">
-<div><b>HERCOR COLLEGE</b><br><small>RIO P. MARTINEZ - Cum Laude</small></div>
-</div>
-  
 
-<h1>🎓 HERCOR COLLEGE PAYROLL SYSTEM<br><span style="font-size:12px">RIO P. MARTINEZ - Cum Laude Batch 2026</span><br><span style="font-size:10px;background:#000;color:#22c55e;padding:4px 10px;border-radius:20px">✅ SINGLE FILE DATABASE - LAHAT NANDITO NA!</span></h1>
+<div class="top">
+<img src="logo.png" onerror="this.src='https://via.placeholder.com/60?text=HC'">
+<div><b>HERCOR COLLEGE</b><br><small>RIO P. MARTINEZ - Cum Laude Batch 2026</small><br><small style="background:#0f172a;color:#22c55e;padding:2px 6px;border-radius:10px">✅ App Icon Ready</small></div>
+</div>
 
 <div class="tabs">
-<div class="tab active" onclick="openTab('emp')">👷 Employers</div>
-<div class="tab" onclick="openTab('grad')">🎓 Graduates</div>
-<div class="tab" onclick="openTab('pay')">💰 Payroll</div>
-<div class="tab" onclick="openTab('db')">🗄️ Database</div>
+<div class="tab on" onclick="openTab(event,'emp')">👷 Employers</div>
+<div class="tab" onclick="openTab(event,'pay')">💰 Payroll</div>
+<div class="tab" onclick="openTab(event,'db')">🗄️ DB</div>
 </div>
 
-<!-- EMPLOYERS -->
-<div id="emp" class="sec active">
+<div id="emp" class="sec on">
 <div class="box">
 <h3>👷 ADD EMPLOYER</h3>
-<input id="eName" placeholder="Name: RIO P. MARTINEZ">
+<input id="eName" placeholder="Full Name: RIO P. MARTINEZ">
 <input id="ePos" placeholder="Position: CEO">
 <select id="eBranch"><option>Main QC Campus</option><option>Bolinao Branch</option></select>
 <input id="eSalary" type="number" placeholder="Basic Salary: 50000">
 <button class="black" onclick="addEmp()">➕ ADD EMPLOYER</button>
 <table id="eTable"></table>
+<button onclick="resetDB()" style="background:#ef4444;color:#fff;margin-top:10px">🗑️ RESET - Pag blanko pa rin pindutin mo ito</button>
 </div>
 </div>
 
-<!-- GRADUATES -->
-<div id="grad" class="sec">
-<div class="box">
-<h3>🎓 ADD GRADUATE STUDENT</h3>
-<input id="gName" placeholder="Name: JUAN DELA CRUZ">
-<input id="gCourse" placeholder="Course: BS IT">
-<select id="gHonor"><option>Cum Laude</option><option>Magna Cum Laude</option><option>Summa Cum Laude</option><option>With Honors</option></select>
-<input id="gBatch" placeholder="Batch: Batch 2026">
-<select id="gBranch"><option>Main QC Campus</option><option>Bolinao Branch</option></select>
-<button class="yellow" onclick="addGrad()">🎓 ADD GRADUATE</button>
-<table id="gTable"></table>
-</div>
-</div>
-
-<!-- PAYROLL -->
 <div id="pay" class="sec">
 <div class="box">
-<h3>💰 PAYROLL - Sahod System</h3>
+<h3>💰 PAYROLL</h3>
 <select id="pEmp"></select>
 <input id="pDays" type="number" placeholder="Days Worked: 22">
 <input id="pBonus" type="number" placeholder="Bonus: 2000">
-<input id="pDeduct" type="number" placeholder="Deduction (SSS, PhilHealth): 1500">
+<input id="pDeduct" type="number" placeholder="Deduction SSS PhilHealth: 1500">
 <button class="black" onclick="addPayroll()">💵 GENERATE PAYSLIP</button>
 <table id="pTable"></table>
-<p style="font-size:11px;margin-top:8px;color:#666">Formula: (Salary / 22 * Days) + Bonus - Deduction = Net Pay</p>
 </div>
 </div>
 
-<!-- DATABASE LOOB -->
 <div id="db" class="sec">
 <div class="box" style="background:#0f172a;color:#fff;border:2px solid #facc15">
-<h3 style="color:#facc15">🗄️ DATABASE LOOB - Lahat ng data nandito Boss!</h3>
-<p style="font-size:11px;color:#94a3b8">Dito mo makikita lahat ng in-add mo - Employers, Graduates, Payroll - Isang file lang lahat!</p>
-<div style="display:flex;gap:5px;margin:8px 0">
-<button onclick="showDB('all')" style="background:#facc15;color:#000;width:auto;padding:8px 12px;font-size:11px">📄 BUONG DATABASE</button>
-<button onclick="showDB('emp')" style="background:#fff;color:#000;width:auto;padding:8px 12px;font-size:11px">👷 Employers</button>
-<button onclick="showDB('pay')" style="background:#22c55e;color:#fff;width:auto;padding:8px 12px;font-size:11px">💰 Payroll</button>
-</div>
-<textarea id="dbView" style="width:100%;height:280px;background:#000;color:#4ade80;padding:10px;border-radius:10px;font-family:monospace;font-size:11px"></textarea>
-<button class="yellow" onclick="copyDB()">📋 COPY DATABASE - Para backup</button>
-<button class="black" onclick="clearAll()" style="background:#ef4444">🗑️ BURAHIN LAHAT NG DATA - Reset</button>
-<p style="font-size:10px;color:#64748b;margin-top:6px">Lahat ng data naka save sa phone mo (localStorage) - Kahit i-close mo browser, nandyan pa rin! Hindi na kailangan ng database.json!</p>
+<h3 style="color:#facc15">🗄️ DATABASE</h3>
+<textarea id="dbView" style="width:100%;height:250px;background:#000;color:#4ade80;padding:10px;border-radius:10px;font-family:monospace;font-size:11px"></textarea>
 </div>
 </div>
 
-<div style="text-align:center;font-size:10px;opacity:.5;margin:15px">© 2026 HERCOR COLLEGE - RIO P. MARTINEZ - SINGLE FILE PAYROLL SYSTEM - No need database.json</div>
+<div style="text-align:center;font-size:10px;opacity:.5;margin:15px">© 2026 HERCOR COLLEGE - RIO P. MARTINEZ</div>
 
 <script>
-let DB = JSON.parse(localStorage.getItem('HERCOR_SINGLE_DB') || JSON.stringify({
-  employees: [
-    {id:1, name:"RIO P. MARTINEZ", position:"CEO / Developer", branch:"Main QC Campus", salary:50000},
-    {id:2, name:"JUAN DELA CRUZ", position:"Teacher", branch:"Main QC Campus", salary:25000},
-    {id:3, name:"MARIA SANTOS", position:"Registrar", branch:"Bolinao Branch", salary:22000}
+// FIX PARA SA BLANKO - AUTO RESET PAG SIRA DATA
+let raw = localStorage.getItem('HERCOR_FINAL_DB');
+let DB;
+try{
+ DB = JSON.parse(raw);
+ if(!DB.employees || DB.employees.length==0 ||!DB.employees[0].name) throw "sira";
+}catch(e){
+ DB = {
+  employees:[
+   {id:1,name:"RIO P. MARTINEZ",position:"CEO / Developer",branch:"Main QC Campus",salary:50000},
+   {id:2,name:"JUAN DELA CRUZ",position:"Teacher",branch:"Main QC Campus",salary:25000}
   ],
-  graduates: [
-    {id:1, name:"RIO P. MARTINEZ", course:"BS Information Technology", honor:"Cum Laude", batch:"Batch 2026", branch:"Main QC Campus"},
-    {id:2, name:"MARIA SANTOS", course:"BS Education", honor:"Magna Cum Laude", batch:"Batch 2026", branch:"Bolinao Branch"}
-  ],
-  payrolls: []
-}));
-
-function openTab(t){
-  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(s=>s.classList.remove('active'));
-  document.getElementById(t).classList.add('active');
-  event.target.classList.add('active');
-  if(t==='db') showDB('all');
+  payrolls:[]
+ };
+ localStorage.setItem('HERCOR_FINAL_DB', JSON.stringify(DB));
 }
 
-function save(){ localStorage.setItem('HERCOR_SINGLE_DB', JSON.stringify(DB)); render(); }
-
+function openTab(ev,id){
+ document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+ document.getElementById(id).classList.add('on');
+ ev.target.classList.add('on');
+ if(id==='db') document.getElementById('dbView').value=JSON.stringify(DB,null,2);
+}
+function save(){localStorage.setItem('HERCOR_FINAL_DB', JSON.stringify(DB));render()}
 function addEmp(){
-  let n=document.getElementById('eName').value.trim(); if(!n) return alert('Lagay mo Name Boss!');
-  DB.employees.push({id:Date.now(), name:n, position:document.getElementById('ePos').value||'Staff', branch:document.getElementById('eBranch').value, salary:Number(document.getElementById('eSalary').value)||0});
-  document.getElementById('eName').value=''; document.getElementById('ePos').value=''; document.getElementById('eSalary').value='';
-  save(); alert('✅ Employer Added: '+n);
-}
-function addGrad(){
-  let n=document.getElementById('gName').value.trim(); if(!n) return alert('Lagay mo Name Boss!');
-  DB.graduates.push({id:Date.now(), name:n, course:document.getElementById('gCourse').value||'BS IT', honor:document.getElementById('gHonor').value, batch:document.getElementById('gBatch').value||'Batch 2026', branch:document.getElementById('gBranch').value});
-  document.getElementById('gName').value=''; document.getElementById('gCourse').value=''; document.getElementById('gBatch').value='';
-  save(); alert('🎓 Graduate Added: '+n);
+ let n=document.getElementById('eName').value.trim();
+ if(!n) return alert('Lagay mo Name Boss!');
+ DB.employees.push({id:Date.now(),name:n,position:document.getElementById('ePos').value||'Staff',branch:document.getElementById('eBranch').value,salary:Number(document.getElementById('eSalary').value)||0});
+ document.getElementById('eName').value='';save();alert('Added: '+n);
 }
 function addPayroll(){
-  let idx=document.getElementById('pEmp').value; if(idx==='') return alert('Pili ka muna Employer!');
-  let emp=DB.employees[idx];
-  let days=Number(document.getElementById('pDays').value)||22;
-  let bonus=Number(document.getElementById('pBonus').value)||0;
-  let deduct=Number(document.getElementById('pDeduct').value)||0;
-  let gross = (emp.salary / 22 * days);
-  let net = gross + bonus - deduct;
-  DB.payrolls.push({id:Date.now(), empName:emp.name, position:emp.position, branch:emp.branch, basic:emp.salary, days:days, bonus:bonus, deduct:deduct, gross:gross, net:net, date:new Date().toLocaleDateString()});
-  save(); alert(`💰 Payslip Generated!\n${emp.name}\nGross: ₱${gross.toFixed(2)}\nNet Pay: ₱${net.toFixed(2)}`);
+ let idx=document.getElementById('pEmp').value;
+ if(idx==='') return alert('Pili ka Employer!');
+ let emp=DB.employees[idx];
+ let days=Number(document.getElementById('pDays').value)||22;
+ let bonus=Number(document.getElementById('pBonus').value)||0;
+ let deduct=Number(document.getElementById('pDeduct').value)||0;
+ let gross=emp.salary/22*days;
+ let net=gross+bonus-deduct;
+ DB.payrolls.push({id:Date.now(),name:emp.name,days,gross,net,date:new Date().toLocaleDateString()});
+ save();alert('Payslip: '+emp.name+' Net ₱'+net.toFixed(2));
 }
+function resetDB(){if(confirm('Burahin lahat at ayusin?')){localStorage.removeItem('HERCOR_FINAL_DB');location.reload()}}
 function render(){
-  let eh='<tr><th>Name</th><th>Pos/Branch</th><th>Salary</th><th>X</th></tr>';
-  DB.employees.forEach((e,i)=>{ eh+=`<tr><td><b>${e.name}</b></td><td>${e.position}<br><small>${e.branch}</small></td><td>₱${e.salary}</td><td><button onclick="DB.employees.splice(${i},1);save()" style="background:red;color:#fff;padding:4px 8px;border-radius:5px;width:auto">X</button></td></tr>`; });
-  document.getElementById('eTable').innerHTML=eh;
-
-  let gh='<tr><th>Name</th><th>Course/Honor</th><th>Batch</th><th>X</th></tr>';
-  DB.graduates.forEach((g,i)=>{ gh+=`<tr><td><b>${g.name}</b></td><td>${g.course}<br><span class=badge>${g.honor}</span></td><td>${g.batch}<br><small>${g.branch}</small></td><td><button onclick="DB.graduates.splice(${i},1);save()" style="background:red;color:#fff;padding:4px 8px;border-radius:5px;width:auto">X</button></td></tr>`; });
-  document.getElementById('gTable').innerHTML=gh;
-
-  let po='<option value="">-- Pili ng Employer --</option>'; DB.employees.forEach((e,i)=>{ po+=`<option value="${i}">${e.name} - ₱${e.salary}</option>`; });
-  document.getElementById('pEmp').innerHTML=po;
-
-  let ph='<tr><th>Employee</th><th>Days</th><th>Gross</th><th>Net Pay</th><th>Date</th><th>X</th></tr>';
-  DB.payrolls.forEach((p,i)=>{ ph+=`<tr><td><b>${p.empName}</b><br><small>${p.position}</small></td><td>${p.days}</td><td>₱${p.gross.toFixed(0)}</td><td><b>₱${p.net.toFixed(0)}</b></td><td>${p.date}</td><td><button onclick="DB.payrolls.splice(${i},1);save()" style="background:red;color:#fff;padding:4px 8px;width:auto">X</button></td></tr>`; });
-  document.getElementById('pTable').innerHTML=ph;
-
-  showDB('all');
+ let eh='<tr><th>Name</th><th>Pos/Branch</th><th>Salary</th><th>X</th></tr>';
+ DB.employees.forEach((e,i)=>{eh+=`<tr><td><b>${e.name}</b></td><td>${e.position}<br><small>${e.branch}</small></td><td>₱${e.salary}</td><td><button onclick="DB.employees.splice(${i},1);save()" style="width:auto;background:red;color:#fff;padding:6px 10px;border-radius:6px">X</button></td></tr>`});
+ document.getElementById('eTable').innerHTML=eh;
+ let po='<option value="">-- Pili Employer --</option>';DB.employees.forEach((e,i)=>{po+=`<option value="${i}">${e.name} - ₱${e.salary}</option>`});
+ document.getElementById('pEmp').innerHTML=po;
+ let ph='<tr><th>Name</th><th>Days</th><th>Net Pay</th><th>X</th></tr>';
+ DB.payrolls.forEach((p,i)=>{ph+=`<tr><td><b>${p.name}</b></td><td>${p.days}</td><td><b>₱${p.net.toFixed(0)}</b></td><td><button onclick="DB.payrolls.splice(${i},1);save()" style="width:auto;background:red;color:#fff;padding:6px">X</button></td></tr>`});
+ document.getElementById('pTable').innerHTML=ph;
+ document.getElementById('dbView').value=JSON.stringify(DB,null,2);
 }
-function showDB(t){
-  if(t==='emp') document.getElementById('dbView').value=JSON.stringify(DB.employees,null,2);
-  else if(t==='pay') document.getElementById('dbView').value=JSON.stringify(DB.payrolls,null,2);
-  else document.getElementById('dbView').value=JSON.stringify(DB,null,2);
-}
-function copyDB(){ navigator.clipboard.writeText(document.getElementById('dbView').value).then(()=>alert('✅ COPIED NA BOSS! Backup mo na!')); }
-function clearAll(){ if(confirm('Sure ka burahin lahat Boss?')){ localStorage.removeItem('HERCOR_SINGLE_DB'); location.reload(); } }
 render();
 </script>
-<script>
-if('serviceWorker' in navigator){console.log('PWA ready')}
-</script>  
 </body>
 </html>
