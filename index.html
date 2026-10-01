@@ -1,10 +1,43 @@
-{
-  "employees": [
-    {"id": 1, "name": "RIO P. MARTINEZ", "position": "CEO", "branch": "Main QC Campus", "salary": 50000},
-    {"id": 2, "name": "JUAN DELA CRUZ", "position": "Teacher", "branch": "Main QC Campus", "salary": 25000}
-  ],
-  "graduates": [
-    {"id": 1, "name": "RIO P. MARTINEZ", "course": "BS IT", "honor": "Cum Laude", "batch": "Batch 2026"},
-    {"id": 2, "name": "MARIA SANTOS", "course": "BS Education", "honor": "Magna Cum Laude", "batch": "Batch 2026"}
-  ]
-}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HERCOR DATABASE - RIO MARTINEZ</title>
+<style>
+body{font-family:Arial;background:#0f172a;padding:10px;color:#fff}
+.box{background:#fff;color:#000;padding:15px;border-radius:12px;margin:10px 0}
+h1{background:linear-gradient(90deg,#facc15,#f97316);color:#000;padding:15px;border-radius:12px;text-align:center}
+.item{border:1px solid #ddd;padding:8px;margin:5px 0;border-radius:8px;background:#f9f9f9}
+textarea{width:100%;height:200px;background:#000;color:#0f0;padding:10px;font-family:monospace;font-size:11px;border-radius:8px}
+button{padding:10px;border:none;border-radius:8px;font-weight:bold;width:100%;margin:5px 0}
+</style>
+</head>
+<body>
+<h1>🎓 HERCOR COLLEGE<br><span style="font-size:14px">RIO P. MARTINEZ - Cum Laude - Batch 2026</span><br><span id="status" style="font-size:11px;background:#000;color:#0f0;padding:3px 8px;border-radius:10px">Loading database.json...</span></h1>
+
+<div class="box"><h3>👷 EMPLOYERS (gutom sa database.json)</h3><div id="emp">Loading...</div></div>
+<div class="box"><h3>🎓 GRADUATES (gutom sa database.json)</h3><div id="grad">Loading...</div></div>
+
+<div class="box" style="background:#000;color:#fff;border:2px solid #facc15">
+<h3 style="color:#facc15">🗄️ DATABASE LOOB - Makikita mo lahat dito Boss!</h3>
+<textarea id="raw"></textarea>
+<button onclick="location.reload()" style="background:#facc15;color:#000">🔄 REFRESH - Para makita bago mong add</button>
+<a href="https://github.com/fasting1234/fasting1234.github.io/blob/main/database.json" target="_blank" style="display:block;background:#fff;color:#000;padding:10px;text-align:center;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:6px">📄 EDIT DATABASE.JSON - Dito ka mag add Boss</a>
+<p style="font-size:10px;color:#888;margin-top:5px">Paano mag add: Click EDIT DATABASE.JSON > Click pencil ✏️ > Dagdag ka ng name > Commit > Balik dito > Refresh!</p>
+</div>
+
+<script>
+fetch('./database.json?t='+Date.now()).then(r=>r.json()).then(db=>{
+ document.getElementById('status').innerText='✅ DATABASE LOADED - '+db.employees.length+' Employers, '+db.graduates.length+' Graduates';
+ let e=''; db.employees.forEach(x=>{ e+=`<div class=item><b>${x.name}</b> - ${x.position} - ₱${x.salary}<br><small>${x.branch}</small></div>`; });
+ document.getElementById('emp').innerHTML=e;
+ let g=''; db.graduates.forEach(x=>{ g+=`<div class=item><b>${x.name}</b> - ${x.course} - <span style="background:yellow;padding:2px 6px;border-radius:10px;font-size:10px">${x.honor}</span><br><small>${x.batch}</small></div>`; });
+ document.getElementById('grad').innerHTML=g;
+ document.getElementById('raw').value=JSON.stringify(db,null,2);
+}).catch(err=>{
+ document.getElementById('status').innerText='❌ Wala pang database.json! Create mo muna!';
+ document.getElementById('raw').value='Error: '+err;
+});
+</script>
+</body>
+</html>
